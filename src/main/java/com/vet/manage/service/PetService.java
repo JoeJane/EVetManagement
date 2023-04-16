@@ -21,4 +21,8 @@ public interface PetService {
 
     public List<Pet> search(String searchTerm);
 
+    public List<Pet> findPetByVeterinarian(Integer userId);
+
+    public List<Pet> findPetByVeterinarian(String inputString, Integer userId);
+
 }

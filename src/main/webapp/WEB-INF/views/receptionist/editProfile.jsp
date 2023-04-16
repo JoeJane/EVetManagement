@@ -340,43 +340,27 @@
 
 <script>
     $(document).ready(function () {
-        $("#role").change(function() {
-            if(this.value == 'PATIENT'){
-                $("#blood_group").addClass('show').removeClass('hide');
-                $( "#emergency_contact" ).addClass('show').removeClass('hide');
+        const currentDate = new Date();
+        $('input#dob').tempusDominus({
+            display: {
+                viewMode: 'calendar',
+                components: {
+                    decades: true,
+                    year: true,
+                    month: true,
+                    date: true,
+                    hours: false,
+                    minutes: false,
+                    seconds: false
+                }
+            },
+            restrictions: {
+                maxDate: new Date()
+            },
 
-                $( "#doctor_speciality" ).addClass('hide').removeClass('show');
-                $( "#nurse_type" ).addClass('hide').removeClass('show');
-            } else if(this.value == 'DOCTOR'){
-                $( "#doctor_speciality" ).addClass('show').removeClass('hide');
-
-                $( "#emergency_contact" ).addClass('hide').removeClass('show');
-                $( "#blood_group" ).addClass('hide').removeClass('show');
-                $( "#nurse_type" ).addClass('hide').removeClass('show');
-            } else if(this.value == 'NURSE') {
-                $( "#nurse_type" ).addClass('show').removeClass('hide');
-
-                $( "#emergency_contact" ).addClass('hide').removeClass('show');
-                $( "#blood_group" ).addClass('hide').removeClass('show');
-                $( "#doctor_speciality" ).addClass('hide').removeClass('show');
-            } else if(this.value == 'LAB_ASSISTANT') {
-                $( "#emergency_contact" ).addClass('hide').removeClass('show');
-                $( "#blood_group" ).addClass('hide').removeClass('show');
-                $( "#doctor_speciality" ).addClass('hide').removeClass('show');
-                $( "#nurse_type" ).addClass('hide').removeClass('show');
-            } else if(this.value == 'RECEPTIONIST') {
-                $( "#emergency_contact" ).addClass('hide').removeClass('show');
-                $( "#blood_group" ).addClass('hide').removeClass('show');
-                $( "#doctor_speciality" ).addClass('hide').removeClass('show');
-                $( "#nurse_type" ).addClass('hide').removeClass('show');
-            }
-
-        });
-
-        $(function () {
-            $('input#dob').datepicker({
-                endDate: "today"
-            });
+            localization: {
+                format: 'dd/MM/yyyy',
+            },
         });
     })
 </script>

@@ -14,7 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * ReceptionistControllerTest starter class
+ * E-Vet starter class
  */
 @WebMvcTest(ReceptionistController.class)
 public class ReceptionistControllerTest {

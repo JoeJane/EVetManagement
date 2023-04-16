@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * Service for Veterinarian
- * @author Jane Aarthy Joseph
  */
 public interface VeterinaryService {
 

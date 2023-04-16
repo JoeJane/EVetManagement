@@ -2,7 +2,6 @@ package com.vet.manage.model.dto;
 
 /**
  * Predefine provinces
- * @author Sinthuvarsini
  */
 public enum Province {
 

@@ -9,7 +9,6 @@ import java.util.List;
 
 /**
  * Repository for Pet Owner
- * @author Jane Aarthy Joseph
  */
 public interface OwnerRepository extends JpaRepository<Owner, Integer> {
 

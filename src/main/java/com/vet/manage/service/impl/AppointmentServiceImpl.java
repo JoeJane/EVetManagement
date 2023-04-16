@@ -131,4 +131,16 @@ public class AppointmentServiceImpl implements AppointmentService {
             throw new FileStorageException("Could not store file " + fileName + ". Please try again!", ex);
         }
     }
+
+    public Appointment saveDiagnosisAndPrescription(Diagnosis diagnosis, Integer appointmentId){
+        Appointment appointment = appointmentRepository.findById(appointmentId).orElseThrow();
+        appointment.setStatus(Status.COMPLETED);
+        appointment.setDiagnosis(diagnosis);
+        diagnosis.setAppointment(appointment);
+        return appointmentRepository.save(appointment);
+    }
+
+    public Optional<Appointment> findAppointmentByPetIdAndVetId(Integer petId, Integer userId){
+        return appointmentRepository.findAppointmentByPetIdAndVetId(petId, userId, Status.NEW);
+    }
 }

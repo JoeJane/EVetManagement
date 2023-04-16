@@ -19,7 +19,7 @@ import java.util.Optional;
 import static org.mockito.Mockito.doReturn;
 
 /**
- * EPatient UserService class
+ * E-Vet UserService class
  */
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTest {

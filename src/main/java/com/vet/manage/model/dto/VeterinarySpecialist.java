@@ -2,7 +2,6 @@ package com.vet.manage.model.dto;
 
 /**
  * Predefine VeterinarySpecialist
- * @author Maiara Almeida
  */
 public enum VeterinarySpecialist {
     ANESTHESIOLOGISTS(" Veterinary Anesthesiologist"),

@@ -20,7 +20,6 @@ import java.util.stream.Collectors;
 
 /**
  * ServiceImpl for ReportService
- * @author Jane Aarthy Joseph
  */
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {

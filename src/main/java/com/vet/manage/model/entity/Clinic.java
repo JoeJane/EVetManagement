@@ -12,7 +12,6 @@ import java.util.Objects;
 
 /**
  * Entity for Clinic
- * @author Jane Aarthy Joseph
  */
 @Entity
 @Table(name = "clinic")

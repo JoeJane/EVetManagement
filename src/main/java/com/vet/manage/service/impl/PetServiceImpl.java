@@ -74,4 +74,11 @@ public class PetServiceImpl implements PetService {
         return petRepository.findPetBy(term);
     }
 
+    public List<Pet> findPetByVeterinarian(Integer userId){
+        return petRepository.findPetByVeterinarian(userId);
+    }
+
+    public List<Pet> findPetByVeterinarian(String inputString, Integer userId){
+        return petRepository.findPetByVeterinarian(inputString, userId);
+    }
 }

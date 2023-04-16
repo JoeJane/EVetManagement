@@ -126,12 +126,12 @@
 
 
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 mb-3">
                                             <label for="type" class="form-label fw-bold mb-0">Pet Type</label>
                                             <form:input path="pet.type" type="text" id="type"
                                                         class="form-control-plaintext"/>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 mb-3">
                                             <label for="breed" class="form-label fw-bold mb-0">Breed</label>
                                             <form:input path="pet.breed" type="text" id="breed"
                                                         class="form-control-plaintext"/>
@@ -139,12 +139,12 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 mb-3">
                                             <label for="age" class="form-label fw-bold mb-0">Age</label>
                                             <form:input path="pet.age" type="text" id="age"
                                                         class="form-control-plaintext"/>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 mb-3">
                                             <label for="weight" class="form-label fw-bold mb-0">Weight</label>
                                             <form:input path="pet.weight" type="text" id="weight"
                                                         class="form-control-plaintext"/>
@@ -170,9 +170,14 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        <c:choose>
+                                        <c:when test="${bookings == null || bookings.size() ==0}">
+                                            <tr>
+                                                <td colspan="5" class="text-center">No records available</td>
+                                            </tr>
+                                        </c:when>
+                                        <c:otherwise>
                                         <c:forEach var="booking" items="${bookings}" varStatus="loop">
-                                            <c:choose>
-                                                <c:when test="${booking.status != 'NEW'}">
                                                     <tr>
                                                         <td>${loop.index}</td>
                                                         <td><fmt:parseDate value="${booking.appointmentDate}" pattern="yyyy-MM-dd" var="appointmentAt" type="date"/>
@@ -184,7 +189,7 @@
                                                                     <span class="fw-normal text-danger">Inactive</span>
                                                                 </c:when>
                                                                 <c:when test="${booking.status == 'NEW'}">
-                                                                    <span class="fw-normal text-primary">Pending</span>
+                                                                    <span class="fw-normal text-info">Pending</span>
                                                                 </c:when>
                                                                 <c:when test="${booking.status == 'COMPLETED'}">
                                                                     <span class="fw-normal text-success">Completed</span>
@@ -230,9 +235,9 @@
                                                         </td>
                                                     </tr>
 
-                                                </c:when>
-                                            </c:choose>
                                         </c:forEach>
+                                        </c:otherwise>
+                                        </c:choose>
                                         </tbody>
                                     </table>
                                 </div>

@@ -39,7 +39,7 @@ public class User<T> implements UserDetails {
     private String email;
 
     @NotBlank(message = "User Name cannot be empty")
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     private String username;
 
     @NotBlank(message = "Password cannot be empty")
@@ -90,15 +90,13 @@ public class User<T> implements UserDetails {
     @NotNull(message = "Role is mandatory")
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
-    private Role role;
+    private Role role = Role.USER;
 
     @Transient
     private VeterinarySpecialist speciality;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
     @JoinColumn(name = "clinic_id")
-    @Valid
-    @NotNull(message = "Clinic is mandatory")
     private Clinic clinic;
 
     @Override

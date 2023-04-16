@@ -8,7 +8,6 @@ import java.util.Optional;
 
 /**
  * Service for Clinic
- * @author Maiara Almeida
  */
 public interface ClinicService {
     public void saveOrUpdate(Clinic clinic);

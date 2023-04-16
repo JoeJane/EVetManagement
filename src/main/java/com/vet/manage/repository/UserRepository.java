@@ -10,7 +10,6 @@ import java.util.Optional;
 
 /**
  * Repository for User
- * @author Abasibiangake
  */
 public interface UserRepository extends JpaRepository<User, Integer> {
 

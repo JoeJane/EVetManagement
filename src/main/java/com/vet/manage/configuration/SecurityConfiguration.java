@@ -60,6 +60,7 @@ public class SecurityConfiguration {
                 .antMatchers("/labassistant/**").hasAnyAuthority("LAB_ASSISTANT")
                 .antMatchers("/receptionist/**").hasAnyAuthority("RECEPTIONIST")
                 .antMatchers("/veterinarian/**").hasAnyAuthority("VETERINARIAN")
+                .antMatchers("/user/**").hasAnyAuthority("USER")
                 .anyRequest().authenticated()
                 .and()
                 // form login

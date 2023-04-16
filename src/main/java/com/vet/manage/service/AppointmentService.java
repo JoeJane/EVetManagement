@@ -2,6 +2,7 @@ package com.vet.manage.service;
 
 import com.vet.manage.model.dto.Status;
 import com.vet.manage.model.entity.Appointment;
+import com.vet.manage.model.entity.Diagnosis;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Optional;
@@ -21,4 +22,7 @@ public interface AppointmentService {
 
     public Appointment storeFileByAppointment(MultipartFile file, Integer appointmentId, Integer labAssistantID);
 
+    public Appointment saveDiagnosisAndPrescription(Diagnosis diagnosis, Integer appointmentId);
+
+    public Optional<Appointment> findAppointmentByPetIdAndVetId(Integer petId, Integer userId);
 }

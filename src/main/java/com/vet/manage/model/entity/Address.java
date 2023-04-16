@@ -49,9 +49,6 @@ public class Address {
     @OneToOne(mappedBy = "address", fetch = FetchType.LAZY)
     private Clinic clinic;
 
-    @OneToOne(mappedBy = "address", fetch = FetchType.LAZY)
-    private Owner owner;
-
     public Integer getId() {
         return id;
     }
@@ -114,14 +111,6 @@ public class Address {
 
     public void setClinic(Clinic clinic) {
         this.clinic = clinic;
-    }
-
-    public Owner getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
     }
 
     public String getStreet() {

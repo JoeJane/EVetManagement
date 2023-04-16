@@ -104,7 +104,9 @@ public class ReceptionistController {
 	 */
 	@GetMapping("/petowner/add")
 	public String addUser(Model model) {
-		model.addAttribute("userForm", new Owner());
+		Owner owner = new Owner();
+		owner.setPassword("****");
+		model.addAttribute("userForm", owner);
 		populateDefaultCheckBoxesAndRadios(model);
 		return "/receptionist/petowner/registerForm";
 	}
@@ -138,12 +140,14 @@ public class ReceptionistController {
 	@PostMapping("/petowner/save")
 	public String addPetOwner(@ModelAttribute("userForm") @Valid Owner user, BindingResult bindingResult, Model model, final RedirectAttributes redirectAttributes) {
 
-		if(user.getId()==null && ownerService.existsByFirstNameAndLastName(user.getFirstName(), user.getLastName())){
+		if(user.getUserId()==null && ownerService.existsByFirstNameAndLastName(user.getFirstName(), user.getLastName())){
 			bindingResult.rejectValue("firstName", "Duplicate.userForm.username");
 		}
-		if(user.getId()==null && ownerService.existsByEmail(user.getEmail())){
+		if(user.getUserId()==null && ownerService.existsByEmail(user.getEmail())){
 			bindingResult.rejectValue("email", "Duplicate.userForm.emailid");
 		}
+		if(user.isNew())
+			user.setPassword("12345");
 
 
 		if (bindingResult.hasErrors()) {
@@ -160,7 +164,7 @@ public class ReceptionistController {
 
 		ownerService.saveOrUpdate(user);
 
-		return "redirect:/receptionist/petowner/view/" + user.getId();
+		return "redirect:/receptionist/petowner/view/" + user.getUserId();
 	}
 
 
@@ -469,6 +473,22 @@ public class ReceptionistController {
 				.contentType(MediaType.parseMediaType(report.getFileType()))
 				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + report.getFileName() + "\"")
 				.body(new ByteArrayResource(report.getData()));
+	}
+
+
+	@GetMapping("/view-prescription/{appointmentId}")
+	public String viewPetPrescription(@PathVariable("appointmentId") Integer appointmentId, Model model) {
+
+		Appointment appointment = appointmentService.findById(appointmentId).orElseThrow();
+
+
+		model.addAttribute("userForm", appointment.getPet().getOwner());
+		model.addAttribute("pet", appointment.getPet());
+		model.addAttribute("appointment", appointment);
+		model.addAttribute("diagnoses", appointment.getDiagnosis());
+		model.addAttribute("prescriptionList", appointment.getDiagnosis().getPrescription());
+
+		return "/receptionist/viewPrescription";
 	}
 
 }

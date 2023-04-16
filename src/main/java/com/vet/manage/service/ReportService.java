@@ -5,7 +5,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Service for Report
- * @author Josef
  */
 public interface ReportService {
     Report storeFileByAppointment(MultipartFile file, Integer appointmentId, Integer labAssistantID);

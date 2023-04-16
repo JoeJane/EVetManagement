@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * Entity for Veterinarian
- * @author Abasibiangake
  */
 @Entity
 @Table(name = "veterinarian")

@@ -13,7 +13,6 @@ import java.util.Optional;
 
 /**
  * ServiceImpl for Clinic
- * @author Maiara Almeida
  */
 @Service
 public class ClinicServiceImpl implements ClinicService {

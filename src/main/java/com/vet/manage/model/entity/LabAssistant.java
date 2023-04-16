@@ -8,7 +8,6 @@ import java.util.List;
 
 /**
  * Entity for LabAssistant
- * @author Maiara Almeida
  */
 @Entity
 @Table(name = "lab_assistant")

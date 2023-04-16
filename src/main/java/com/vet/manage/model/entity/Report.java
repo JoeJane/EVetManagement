@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 /**
  * Entity for Report
- * @author Maiara Almeida
  */
 @Entity
 @Table(name = "report")

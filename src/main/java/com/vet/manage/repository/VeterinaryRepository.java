@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * Repository for Veterinarian
- * author: Josef
  */
 public interface VeterinaryRepository extends JpaRepository<Veterinarian, Integer> {
 

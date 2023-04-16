@@ -8,7 +8,6 @@ import java.util.List;
 
 /**
  * Entity for Receptionist
- * @author Josef
  */
 @Entity
 @Table(name = "receptionist")

@@ -1,8 +1,7 @@
 package com.vet.manage.model.dto;
 
-/**
- *  Predefine status
- * @author Josef
+/** Predefine status
+ *
  */
 public enum Status {
     COMPLETED, CANCELED, NEW

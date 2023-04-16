@@ -5,7 +5,6 @@ import com.vet.manage.model.entity.*;
 
 /**
  * Util class to convert user to appropriate user type
- * @author Jane Aarthy Joseph
  */
 public class Converter {
 
