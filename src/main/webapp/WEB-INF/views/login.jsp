@@ -26,7 +26,7 @@
                  style="background: url(/resources/images/signin.png); height: 100%; background-size: contain; background-position: center">
                 <div class="d-flex align-items-center justify-content-center">
                     <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
-                        <div class="text-center text-md-center mb-2 mt-md-0"><h1 class="mb-0 h3">Sign in to E-Patient</h1></div>
+                        <div class="text-center text-md-center mb-2 mt-md-0"><h1 class="mb-0 h3">Sign in to E-Vet</h1></div>
 
                         <span class="text-center text-md-center mb-4 mt-md-0 alert alert-success ${message != null ? 'show' : 'hide'}" role="alert">
                             ${message}

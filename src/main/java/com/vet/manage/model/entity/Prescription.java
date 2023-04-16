@@ -21,8 +21,8 @@ public class Prescription {
 
     private String prescriptions;
 
-    @OneToMany(mappedBy = "prescription", cascade = CascadeType.ALL)
-    List<Diagnosis> diagnoses;
+    @OneToOne(mappedBy = "prescription", cascade = CascadeType.ALL)
+    Diagnosis diagnosis;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
@@ -49,13 +49,11 @@ public class Prescription {
         return createdAt;
     }
 
-    public List<Diagnosis> getDiagnoses() {
-        return diagnoses;
+    public Diagnosis getDiagnosis() {
+        return diagnosis;
     }
 
-    public void setDiagnoses(List<Diagnosis> diagnoses) {
-        this.diagnoses = diagnoses;
+    public void setDiagnosis(Diagnosis diagnosis) {
+        this.diagnosis = diagnosis;
     }
-
-
 }

@@ -468,7 +468,7 @@ public class AdminController {
 	 * @return map of @Role and description
 	 */
 	private static Map<Role, String> getRoles(){
-		Map<Role, String> roles = Arrays.stream(Role.values()).filter(role->role != Role.ADMIN).collect(Collectors.toMap(e->e, e->e.getValue(), (oldValue, newValue) -> oldValue, TreeMap::new));
+		Map<Role, String> roles = Arrays.stream(Role.values()).filter(role->!(role == Role.ADMIN || role == Role.USER)).collect(Collectors.toMap(e->e, e->e.getValue(), (oldValue, newValue) -> oldValue, TreeMap::new));
 		return roles;
 	}
 

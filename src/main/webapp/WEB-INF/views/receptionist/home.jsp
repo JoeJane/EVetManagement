@@ -110,8 +110,8 @@
                                     class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
-                                <a class="dropdown-item d-flex align-items-center" href="petowner/view/${pet.owner.id}"><i class="fa-solid fa-eye"></i> View Details </a>
-                                <a class="dropdown-item d-flex align-items-center" href="petowner/edit/${pet.owner.id}"><i class="fa-solid fa-pen-to-square"></i> Edit Details </a>
+                                <a class="dropdown-item d-flex align-items-center" href="petowner/view/${pet.owner.userId}"><i class="fa-solid fa-eye"></i> View Details </a>
+                                <a class="dropdown-item d-flex align-items-center" href="petowner/edit/${pet.owner.userId}"><i class="fa-solid fa-pen-to-square"></i> Edit Details </a>
 
 
 
@@ -124,7 +124,6 @@
                                             </c:when>
                                             <c:when test="${pet.latestAppointment.status == 'NEW' }">
                                                 <a class="dropdown-item d-flex align-items-center cancelbtn" href="#" id="c_${pet.id}" data-petname="${pet.name}" data-myid="${pet.id}"><i class="fa-solid fa-pen-to-square"></i> Cancel Appointment </a>
-                                                <a class="dropdown-item d-flex align-items-center completebtn" href="#" id="c_${pet.id}" data-petname="${pet.name}" data-myid="${pet.id}"><i class="fa-solid fa-pen-to-square"></i> Complete Appointment </a>
                                             </c:when>
                                             <c:otherwise>
                                             </c:otherwise>
@@ -134,10 +133,10 @@
 
                                 <c:choose>
                                     <c:when test="${pet.deleted}">
-                                        <a class="dropdown-item d-flex align-items-center activatebtn" href="#" id="a_${pet.owner.id}" data-petname="${pet.name}" data-myid="${pet.owner.id}"><i class="fa-solid fa-user-check text-success"></i> Activate</a>
+                                        <a class="dropdown-item d-flex align-items-center activatebtn" href="#" id="a_${pet.owner.userId}" data-petname="${pet.name}" data-myid="${pet.owner.userId}"><i class="fa-solid fa-user-check text-success"></i> Activate</a>
                                     </c:when>
                                     <c:otherwise>
-                                        <a class="dropdown-item d-flex align-items-center deletebtn" href="#" id="d_${pet.owner.id}" data-petname="${pet.name}" data-myid="${pet.owner.id}"><i class="fa-solid fa-user-xmark text-danger suspend"></i> Delete</a>
+                                        <a class="dropdown-item d-flex align-items-center deletebtn" href="#" id="d_${pet.owner.userId}" data-petname="${pet.name}" data-myid="${pet.owner.userId}"><i class="fa-solid fa-user-xmark text-danger suspend"></i> Delete</a>
                                     </c:otherwise>
                                 </c:choose>
                             </div>

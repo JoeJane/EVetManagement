@@ -77,7 +77,8 @@
                                                         class="form-control-plaintext"/>
                                         </div>
                                         <div class="col-sm-6 mb-3">
-                                            <label for="address.addressNo" class="form-label fw-bold mb-0">Number</label>
+                                            <label for="address.addressNo"
+                                                   class="form-label fw-bold mb-0">Number</label>
                                             <form:input path="address.addressNo" type="text" id="addressNo"
                                                         class="form-control-plaintext"/>
                                         </div>
@@ -89,7 +90,8 @@
                                                         class="form-control-plaintext"/>
                                         </div>
                                         <div class="col-sm-6 mb-3">
-                                            <label for="address.province" class="form-label fw-bold mb-0">Province</label>
+                                            <label for="address.province"
+                                                   class="form-label fw-bold mb-0">Province</label>
                                             <form:input path="address.province" type="text" id="province"
                                                         class="form-control-plaintext"/>
                                         </div>
@@ -170,13 +172,21 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <c:forEach var="booking" items="${bookings}" varStatus="loop">
-                                            <c:choose>
-                                                <c:when test="${booking.status != 'NEW'}">
+                                        <c:choose>
+                                            <c:when test="${bookings == null || bookings.size() ==0}">
+                                                <tr>
+                                                    <td colspan="5" class="text-center">No records available</td>
+                                                </tr>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <c:forEach var="booking" items="${bookings}" varStatus="loop">
                                                     <tr>
                                                         <td>${loop.index}</td>
-                                                        <td><fmt:parseDate value="${booking.appointmentDate}" pattern="yyyy-MM-dd" var="appointmentAt" type="date"/>
-                                                            <fmt:formatDate pattern="dd-MM-yyyy" value="${appointmentAt}"/> : ${booking.appointmentTime}
+                                                        <td><fmt:parseDate value="${booking.appointmentDate}"
+                                                                           pattern="yyyy-MM-dd" var="appointmentAt"
+                                                                           type="date"/>
+                                                            <fmt:formatDate pattern="dd-MM-yyyy" value="${appointmentAt}"/>
+                                                            : ${booking.appointmentTime}
                                                         </td>
                                                         <td>
                                                             <c:choose>
@@ -184,23 +194,23 @@
                                                                     <span class="fw-normal text-danger">Inactive</span>
                                                                 </c:when>
                                                                 <c:when test="${booking.status == 'NEW'}">
-                                                                    <span class="fw-normal text-primary">Pending</span>
+                                                                    <span class="fw-normal text-info">Pending</span>
                                                                 </c:when>
                                                                 <c:when test="${booking.status == 'COMPLETED'}">
                                                                     <span class="fw-normal text-success">Completed</span>
                                                                 </c:when>
                                                                 <c:when test="${booking.status == 'CANCELED'}">
-                                                                    <span class="fw-normal text-warning">Cancled</span>
+                                                                    <span class="fw-normal text-warning">Canceled</span>
                                                                 </c:when>
                                                             </c:choose>
                                                         </td>
                                                         <td>${booking.veterinarian.fullName}</td>
 
                                                         <td>
-                                                           <%--  <c:choose>
+                                                            <c:choose>
                                                                 <c:when test="${booking.status == 'COMPLETED'}">
                                                                     <a class="align-items-center"
-                                                                       href="/nurse/patient/view-prescription/${booking.id}"
+                                                                       href="/receptionist/view-prescription/${booking.id}"
                                                                        title="View Prescription"><i
                                                                             class="fa-solid fa-capsules"></i></a>
                                                                 </c:when>
@@ -210,19 +220,18 @@
                                                                        title="View Prescription"><i
                                                                             class="fa-solid fa-capsules"></i></a>
                                                                 </c:otherwise>
-                                                            </c:choose> --%>
-<a class="align-items-center disable-a" disabled="true"
-                                                                       href="javascript:void(0)"
-                                                                       title="View Prescription"><i
-                                                                            class="fa-solid fa-capsules"></i></a>
+                                                            </c:choose>
+
                                                             <c:choose>
                                                                 <c:when test="${booking.report.id != null}">
                                                                     <a class="align-items-center ms-3"
                                                                        href="/receptionist/downloadFile/${booking.report.id}"
-                                                                       title="Download Report"><i class="fa-solid fa-circle-down"></i></a>
+                                                                       title="Download Report"><i
+                                                                            class="fa-solid fa-circle-down"></i></a>
                                                                 </c:when>
                                                                 <c:otherwise>
-                                                                    <a class="align-items-center ms-3 disable-a" disabled="true"
+                                                                    <a class="align-items-center ms-3 disable-a"
+                                                                       disabled="true"
                                                                        href="javascript:void(0)"
                                                                        title="Download Report"><i
                                                                             class="fa-solid fa-circle-down"></i></a>
@@ -232,9 +241,10 @@
                                                         </td>
                                                     </tr>
 
-                                                </c:when>
-                                            </c:choose>
-                                        </c:forEach>
+                                                </c:forEach>
+                                            </c:otherwise>
+                                        </c:choose>
+
                                         </tbody>
                                     </table>
                                 </div>

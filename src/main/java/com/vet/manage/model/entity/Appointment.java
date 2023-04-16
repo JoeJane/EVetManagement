@@ -63,8 +63,8 @@ public class Appointment {
     @OneToOne(mappedBy = "appointment", cascade = CascadeType.ALL)
     private Report report;
 
-    @OneToMany(mappedBy = "appointment", cascade = CascadeType.ALL)
-    private List<Diagnosis> diagnoses;
+    @OneToOne(mappedBy = "appointment", cascade = CascadeType.ALL)
+    private Diagnosis diagnosis;
 
 
     public Integer getId() {
@@ -147,13 +147,11 @@ public class Appointment {
         this.report = report;
     }
 
-    public List<Diagnosis> getDiagnoses() {
-        return diagnoses;
+    public Diagnosis getDiagnosis() {
+        return diagnosis;
     }
 
-    public void setDiagnoses(List<Diagnosis> diagnoses) {
-        this.diagnoses = diagnoses;
+    public void setDiagnosis(Diagnosis diagnosis) {
+        this.diagnosis = diagnosis;
     }
-
-
 }

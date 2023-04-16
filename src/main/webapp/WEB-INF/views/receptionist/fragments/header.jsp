@@ -57,19 +57,19 @@
                     <li>
                         <a class="dropdown-item d-flex align-items-center" href="/receptionist/profile">
                             <i class="fa-solid fa-user"></i>
-                            <span>My Profile</span>
+                            <span class="ms-2">My Profile</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item d-flex align-items-center" href="/receptionist/resetPassword">
                             <i class="fa-solid fa-unlock"></i>
-                            <span>Change Password</span>
+                            <span class="ms-2">Change Password</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item d-flex align-items-center" href="/logout">
                             <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                            <span>Sign Out</span>
+                            <span  class="ms-2">Sign Out</span>
                         </a>
                     </li>
                 </ul><!-- End Profile Dropdown Items -->

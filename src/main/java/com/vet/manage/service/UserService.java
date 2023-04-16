@@ -9,7 +9,6 @@ import java.util.Optional;
 
 /**
  * Service for User
- * author: Abasibiangake
  */
 public interface UserService {
 

@@ -50,7 +50,7 @@ public class Pet {
     private Integer weight;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+    @JoinColumn(name = "owner_id", referencedColumnName = "userId")
     private Owner owner;
 
     @CreationTimestamp

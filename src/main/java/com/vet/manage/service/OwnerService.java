@@ -7,7 +7,6 @@ import java.util.Optional;
 
 /**
  * Service for Owner
- * @author Jane Aarthy Joseph
  */
 public interface OwnerService {
 

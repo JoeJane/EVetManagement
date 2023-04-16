@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * Controller for Login related task
- * @author Abasibiangake
  */
 @Controller
 public class LoginController {

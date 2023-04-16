@@ -101,8 +101,15 @@
                                     class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
-                                <a class="dropdown-item d-flex align-items-center" href="view/${pet.owner.id}"><i class="fa-solid fa-eye"></i> View Details </a>
-                                <a class="dropdown-item d-flex align-items-center" href="uploadreport/${pet.latestAppointment.id}"><i class="fa-solid fa-pen-to-square"></i> Upload Report </a>
+                                <a class="dropdown-item d-flex align-items-center" href="view/${pet.owner.userId}"><i class="fa-solid fa-eye"></i> View Details </a>
+
+                                <c:choose>
+                                    <c:when test="${pet.latestAppointment == null || pet.latestAppointment.status == 'NEW' || pet.latestAppointment.status == 'COMPLETED' }">
+                                        <a class="dropdown-item d-flex align-items-center" href="uploadreport/${pet.latestAppointment.id}"><i class="fa-solid fa-pen-to-square"></i> Upload Report </a>
+                                    </c:when>
+                                </c:choose>
+
+
                             </div>
                         </div>
                     </td>

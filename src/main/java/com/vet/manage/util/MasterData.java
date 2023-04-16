@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 
 /**
  * Util class load master data
- * @author Jane Aarthy Joseph
  */
 public class MasterData {
 

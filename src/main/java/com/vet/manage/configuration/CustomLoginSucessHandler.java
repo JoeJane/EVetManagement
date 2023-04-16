@@ -57,6 +57,8 @@ public class CustomLoginSucessHandler extends SimpleUrlAuthenticationSuccessHand
             url = "/labassistant/home";
         }else if(roles.contains("RECEPTIONIST")) {
             url = "/receptionist/home";
+        } else {
+            url = "/user/home";
         }
 
         return url;

@@ -204,12 +204,12 @@
                 success: function (data, textStatus, xhr) {
                     $('#confirm-delete').modal('hide');
                     $('#confirm-modal').modal('show');
-                    $('#confirm-modal #message_box').html("User "+modalcontent+'d!')
+                    $('#confirm-modal #message_box').html("Clinic "+modalcontent+'d!')
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     $('#confirm-delete').modal('hide');
                     $('#confirm-modal').modal('show');
-                    $('#confirm-modal #message_box').html("User "+modalcontent+'failed!')
+                    $('#confirm-modal #message_box').html("Clinic "+modalcontent+'failed!')
                 }
             });
         });

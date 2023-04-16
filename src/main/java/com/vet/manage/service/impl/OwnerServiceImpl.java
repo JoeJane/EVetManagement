@@ -6,6 +6,7 @@ import com.vet.manage.model.entity.Pet;
 import com.vet.manage.repository.OwnerRepository;
 import com.vet.manage.service.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +19,9 @@ import java.util.Optional;
  */
 @Service
 public class OwnerServiceImpl implements OwnerService {
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     private OwnerRepository ownerRepository;
@@ -63,7 +67,7 @@ public class OwnerServiceImpl implements OwnerService {
      */
     @Override
     public void saveOrUpdate(Owner owner) {
-        Integer ownerId = owner.getId();
+        Integer ownerId = owner.getUserId();
 
         Optional<Owner> ownerData = ownerId == null ? Optional.empty() : findById(ownerId);
 
@@ -95,6 +99,9 @@ public class OwnerServiceImpl implements OwnerService {
 
             ownerRepository.save(ownerTemp);
         } else {
+            String encodedPassword = bCryptPasswordEncoder.encode(owner.getPassword());
+            owner.setPassword(encodedPassword);
+
             owner.getPet().setOwner(owner);
             ownerRepository.save(owner);
         }

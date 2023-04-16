@@ -29,4 +29,18 @@ public interface PetRepository extends JpaRepository<Pet, Integer> {
     )
     public List<Pet> findPetBy(String inputString);
 
+
+    @Query(value = "SELECT p FROM Pet as p inner join p.appointments as a" +
+            " inner join a.veterinarian as v WHERE v.userId = :userId and (:inputString is null or p.name like %:inputString% " +
+            "or p.breed like %:inputString% " +
+            "or p.owner.firstName like %:inputString% " +
+            "or p.owner.lastName like %:inputString% ) " +
+            "group by p")
+    public List<Pet> findPetByVeterinarian(String inputString, Integer userId);
+
+
+    @Query(value = "SELECT p FROM Pet as p inner join p.appointments as a" +
+            " inner join a.veterinarian as v WHERE v.userId = :userId group by p")
+    public List<Pet> findPetByVeterinarian(Integer userId);
+
 }

@@ -2,7 +2,6 @@ package com.vet.manage.model.dto;
 
 /**
  * Predefine pet types
- * @author Jaswinder
  */
 public enum PetType {
     DOG("Dog"),

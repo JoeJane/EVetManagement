@@ -20,7 +20,52 @@
             <div class="col">
                 <div class="mb-4 pt-4">
                     <form:form method="post" modelAttribute="userForm" action="/receptionist/petowner/save">
-                        <form:hidden path="id"/>
+                        <form:hidden path="userId"/>
+                        <form:hidden path="password"/>
+                        <c:choose>
+                            <c:when test="${userForm['new']}">
+                                <div class="row">
+                                    <div class="card mb-4 col-md-12">
+                                        <h5 class="card-header">Login information</h5>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <spring:bind path="username">
+                                                        <label for="username"
+                                                               class="form-label fw-bold">Username</label>
+                                                        <form:input path="username" type="text" id="username"
+                                                                    class="form-control ${status.error ? 'is-invalid' : ''}"
+                                                                    placeholder="Enter user name" required=""
+                                                                    aria-describedby="validationUserNameFeedback"/>
+                                                        <form:errors path="username" id="validationUserNameFeedback"
+                                                                     class="invalid-feedback"/>
+                                                    </spring:bind>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="row">
+                                    <div class="card mb-4 col-md-6">
+                                        <h5 class="card-header">Login information</h5>
+                                        <div class="card-body">
+                                            <label for="username" class="form-label fw-bold">Username</label>
+                                            <form:input path="username" type="text" id="username" disabled="true"
+                                                        class="form-control ${status.error ? 'is-invalid' : ''}"
+                                                        placeholder="Enter user name" required=""
+                                                        aria-describedby="validationUserNameFeedback"/>
+
+                                            <form:hidden path="username"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
+
                         <div class="row">
                             <div class="card mb-4 col-md-12">
                                 <h5 class="card-header">General information</h5>
@@ -50,6 +95,21 @@
                                     </div>
 
                                     <div class="row align-items-center">
+
+                                        <div class="col-md-6 mb-3">
+                                            <spring:bind path="dateOfBirth">
+                                                <label for="dob" class="form-label fw-bold">Date of Birth</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa-regular fa-calendar-days"></i> </span>
+                                                    <form:input path="dateOfBirth" type="text" id="dob"
+                                                                class="form-control datepicker-input ${status.error ? 'is-invalid' : ''}"
+                                                                required="" placeholder="dd/MM/yyyy"
+                                                                aria-describedby="validationDOBFeedback"/>
+                                                    <form:errors path="dateOfBirth" id="validationDOBFeedback"
+                                                                 cssClass="invalid-feedback-force-display"/>
+                                                </div>
+                                            </spring:bind>
+                                        </div>
 
                                         <div class="col-md-6 mb-3">
                                             <spring:bind path="gender">
@@ -290,10 +350,27 @@
 
 <script>
     $(document).ready(function () {
-        $(function () {
-            $('input#dob').datepicker({
-                endDate: "today"
-            });
+        const currentDate = new Date();
+        $('input#dob').tempusDominus({
+            display: {
+                viewMode: 'calendar',
+                components: {
+                    decades: true,
+                    year: true,
+                    month: true,
+                    date: true,
+                    hours: false,
+                    minutes: false,
+                    seconds: false
+                }
+            },
+            restrictions: {
+                maxDate: new Date()
+            },
+
+            localization: {
+                format: 'dd/MM/yyyy',
+            },
         });
     })
 </script>

@@ -10,7 +10,6 @@ import java.util.List;
 
 /**
  * ServiceImpl for VeterinaryService
- * @author Jaswinder
  */
 @Service
 public class VeterinaryServiceImpl implements VeterinaryService {

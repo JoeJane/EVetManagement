@@ -223,7 +223,9 @@
                         seconds: false
                     }
                 },
-                
+                restrictions: {
+                    minDate: new Date(),
+                },
                 localization: {
                     format: 'HH:mm',
                 },

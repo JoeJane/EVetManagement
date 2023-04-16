@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * Repository for Clinic
- * @author Jaswinder
  */
 public interface ClinicRepository extends JpaRepository<Clinic, Integer> {
 }

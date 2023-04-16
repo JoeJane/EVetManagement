@@ -6,6 +6,7 @@ package com.vet.manage.model.dto;
  * @author Jane Aarthy Joseph
  */
 public enum Role {
+    USER("User"),
     ADMIN("Admin"),
     VETERINARIAN("Veterinarian"),
     LAB_ASSISTANT("Lab Assistant"),

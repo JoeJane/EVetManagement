@@ -3,7 +3,6 @@ package com.vet.manage.model.dto;
 
 /**
  * POJO for capture search fields
- * @author Sinthuvarsini
  */
 public class SearchTerm {
     String value;

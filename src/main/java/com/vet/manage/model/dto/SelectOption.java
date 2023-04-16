@@ -3,7 +3,6 @@ package com.vet.manage.model.dto;
 
 /**
  * POJO for capture select optoin
- * @author Jaswinder
  */
 public class SelectOption {
     private Integer id;

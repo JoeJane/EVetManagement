@@ -30,7 +30,6 @@ import static com.vet.manage.util.MasterData.getProvinces;
 
 /**
  * Controller for Lab Assistant
- * @author Maiara Almeida
  */
 @Controller
 @RequestMapping("labassistant")

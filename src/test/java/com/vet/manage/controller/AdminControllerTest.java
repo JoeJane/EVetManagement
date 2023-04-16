@@ -15,7 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * AdminControllerTest class
+ * E-vet starter class
  */
 @WebMvcTest(AdminController.class)
 public class AdminControllerTest {
